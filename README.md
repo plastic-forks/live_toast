@@ -66,7 +66,7 @@ Your particular file will look different but all you need to do is make sure the
 > If you're using an umbrella application, your paths above may look different. You'll probably have an extra folder in
 > there, so the line you need to add would be more like `"../../../deps/live_toast/lib/**/*.*ex"`
 
-Finally, replace your `<.flash_group />` component with the new `<LiveToast.toast_group />`. It's most likely in your
+Finally, replace your `<.flash_group />` component with the new `<LiveToast.notification_group />`. It's most likely in your
 `app.html.heex`:
 
 ```heex
@@ -74,7 +74,7 @@ Finally, replace your `<.flash_group />` component with the new `<LiveToast.toas
 <.flash_group flash={@flash} />
 
 <!-- And replace it with this: -->
-<LiveToast.toast_group flash={@flash} connected={assigns[:socket] != nil} />
+<LiveToast.notification_group flash={@flash} connected={assigns[:socket] != nil} />
 
 <%= @inner_content %>
 ```
@@ -146,10 +146,10 @@ end
 
 ### Setting the corner
 
-You can change which corner the toasts are anchored to by passing the `corner` setting to `toast_group`, one of either `:top_left`, `:top_right`, `:bottom_left`, `:bottom_right`. The default is `:bottom_right`.
+You can change which corner the toasts are anchored to by passing the `corner` setting to `notification_group`, one of either `:top_left`, `:top_right`, `:bottom_left`, `:bottom_right`. The default is `:bottom_right`.
 
 ```heex
-<LiveToast.toast_group flash={@flash} connected={assigns[:socket] != nil} corner={:top_right} />
+<LiveToast.notification_group flash={@flash} connected={assigns[:socket] != nil} corner={:top_right} />
 ```
 
 ### Function Options
@@ -195,7 +195,7 @@ end
 And then use it to override the default styles:
 
 ```heex
-<LiveToast.toast_group flash={@flash} connected={assigns[:socket] != nil} toast_class_fn={&MyModule.toast_class_fn/1} />
+<LiveToast.notification_group flash={@flash} connected={assigns[:socket] != nil} toast_class_fn={&MyModule.toast_class_fn/1} />
 ```
 
 ### JavaScript Options

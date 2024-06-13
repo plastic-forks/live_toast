@@ -136,7 +136,7 @@ defmodule LiveToast do
 
   Then use it in your layout:
 
-      <LiveToast.toast_group flash={@flash} connected={assigns[:socket] != nil} toast_class_fn={MyModule.toast_class_fn/1} />
+      <LiveToast.notification_group flash={@flash} connected={assigns[:socket] != nil} toast_class_fn={MyModule.toast_class_fn/1} />
   """
   def toast_class_fn(assigns) do
     [
@@ -172,7 +172,7 @@ defmodule LiveToast do
 
   Replace your `flash_group` with this component in your layout.
   """
-  def toast_group(assigns) do
+  def notification_group(assigns) do
     ~H"""
     <.live_component
       :if={@connected}
